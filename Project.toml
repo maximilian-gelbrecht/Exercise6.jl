@@ -1,6 +1,6 @@
-name = "Exercise7"
+name = "Exercise6"
 uuid = "ac2159b5-8327-4ca4-b819-655316bc1e51"
-authors = ["Alistair White <alistair@pik-potsdam.de>"]
+authors = ["Alistair White <alistair@pik-potsdam.de> and Maximilian Gelbrecht <gelbrecht@pik-potsdam.de>"]
 version = "0.1.2"
 
 [deps]

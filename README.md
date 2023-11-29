@@ -1,7 +1,7 @@
-# Exercise7.jl
+# Exercise6.jl
 
- This repository contains an example solution for Exercise 7 of the course Modelling and Machine Learning of Dynamical Systems in Julia at TUM.
+ This repository contains an example solution for Exercise 6 of the course Modelling and Machine Learning of Dynamical Systems in Julia at TUM.
  
- See the notebook [Exercise7.ipynb](https://github.com/maximilian-gelbrecht/Exercise7.jl/blob/main/Exercise7.ipynb) for an analysis of the models defined in this package.
+ See the notebook [Exercise6.ipynb](https://github.com/maximilian-gelbrecht/Exercise6.jl/blob/main/Exercise6.ipynb) for an analysis of the models defined in this package.
  
-[Documentation](https://maximilian-gelbrecht.github.io/Exercise7.jl/dev/)
+[Documentation](https://maximilian-gelbrecht.github.io/Exercise6.jl/dev/)

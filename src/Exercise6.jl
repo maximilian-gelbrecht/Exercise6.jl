@@ -1,4 +1,4 @@
-module Exercise7
+module Exercise6
 
 export SIR,
     SIRDecayingImmunity,

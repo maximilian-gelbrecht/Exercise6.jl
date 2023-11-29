@@ -1,7 +1,7 @@
-using Documenter, Exercise7
+using Documenter, Exercise6
 
-makedocs(sitename="Exercise7.jl Documentation")
+makedocs(sitename="Exercise6.jl Documentation")
 
 deploydocs(
-    repo = "github.com/maximilian-gelbrecht/Exercise7.jl.git",
+    repo = "github.com/maximilian-gelbrecht/Exercise6.jl.git",
 )
