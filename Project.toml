@@ -1,7 +1,7 @@
 name = "Exercise7"
 uuid = "ac2159b5-8327-4ca4-b819-655316bc1e51"
 authors = ["Alistair White <alistair@pik-potsdam.de>"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
