@@ -6,14 +6,14 @@ function plot(
 ) where {T<:AbstractFloat}
     u0 /= sum(u0)  # Normalise so that S + I + R = 1
     ds = ContinuousDynamicalSystem(model, u0, nothing)
-    tr = trajectory(ds, endtime; Δt)
+    tr = trajectory(ds, endtime; Δt)[1]
     S, I, R = columns(tr)
 
     @printf "Initial conditions: S(0) = %.2f, I(0) = %.2f, R(0) = %.2f\n" u0[1] u0[2] u0[3]
     @printf "Final state:        S(T) = %.2f, I(T) = %.2f, R(T) = %.2f" S[end] I[end] R[end]
 
     # Plotting
-    fig = Figure(; resolution = (1200, 600))
+    fig = Figure(; size = (1200, 600))
     ax = Axis(fig[1, 1]; xlabel = "days", title = repr(model))
     times = Δt*1:length(S)
     lines!(ax, times, S; linewidth = 3, label = "S")
@@ -31,14 +31,14 @@ function plot(
 ) where {T<:AbstractFloat}
     u0 /= sum(u0)  # Normalise so that S + I + R + V = 1
     ds = ContinuousDynamicalSystem(model, u0, nothing)
-    tr = trajectory(ds, endtime; Δt)
+    tr = trajectory(ds, endtime; Δt)[1]
     S, I, R, V = columns(tr)
 
     @printf "Initial conditions: S(0) = %.2f, I(0) = %.2f, R(0) = %.2f, V(0) = %.2f\n" u0[1] u0[2] u0[3] u0[4]
     @printf "Final state:        S(T) = %.2f, I(T) = %.2f, R(T) = %.2f, V(T) = %.2f" S[end] I[end] R[end] V[end]
 
     # Plotting
-    fig = Figure(; resolution = (1200, 600))
+    fig = Figure(; size = (1200, 600))
     ax = Axis(fig[1, 1]; xlabel = "days", title = repr(model))
     times = Δt*1:length(S)
     lines!(ax, times, S; linewidth = 3, label = "S")
@@ -88,7 +88,7 @@ function plot_phase_diagram(
     # Plotting
     S = sol[1, :]
     I = sol[2, :]
-    fig = Figure(; resolution = (1200, 600))
+    fig = Figure(; size = (1200, 600))
     ax1 = Axis(fig[1, 1]; xlabel = "day", ylabel = "-log(I)")
     ax2 = Axis(fig[1, 2]; xlabel = "-log(S)", ylabel = "-log(I)")
     lines!(ax1, sol.t, -1 * log.(I); linewidth = 3)
@@ -107,7 +107,7 @@ function plot_total_infections_by_vax_rate(
     for ν in ν_range
         model = SIRV(ν)
         ds = ContinuousDynamicalSystem(model, u0, nothing)
-        tr = trajectory(ds, endtime; Δt)
+        tr = trajectory(ds, endtime; Δt)[1]
         R_end = tr[end][3]
         push!(total_infections, R_end)
     end
