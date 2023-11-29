@@ -5,6 +5,7 @@ on:
       - main
     tags: ['*']
   pull_request:
+  workflow_dispatch:
 concurrency:
   # Skip intermediate builds: always.
   # Cancel intermediate builds: only if it is a pull request build.
@@ -18,15 +19,15 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '1.8'
+          - '1.0'
+          - '1.9'
+          - 'nightly'
         os:
           - ubuntu-latest
-          - macOS-latest
-          - windows-latest
         arch:
           - x64
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
@@ -34,4 +35,4 @@ jobs:
       - uses: julia-actions/cache@v1
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
-  
+      
